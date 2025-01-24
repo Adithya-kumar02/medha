@@ -1,0 +1,45 @@
+section {
+  width: 100vw;  /* Full width of viewport */
+  height: 100vh; /* Full height of viewport */
+  padding: 60px;
+  border-bottom: 2px solid #ddd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+h2 {
+  color: #4a4a4a;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+#section1 {
+  background-color: #f1f1f1;
+  color: #fff;
+}
+
+#section2 {
+  background-color: #e2e2e2;
+}
+
+#section3 {
+  background-color: #d3d3d3;
+}
+
+#section4 {
+  background-color: #c4c4c4;
+}
+
+#section5 {
+  background-color: #b5b5b5;
+}
+
+#section6 {
+  background-color: #a6a6a6;
+}
