@@ -1,0 +1,65 @@
+/* Section1.css */
+.overlay {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    transition: all 0.5s ease-in-out; /* Smooth transition for all properties */
+    clip-path: circle(0% at 95% 5%); /* Start with a small circle at the top-right corner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .overlay.open {
+    clip-path: circle(150% at 95% 5%); /* Expand to full screen from the top-right corner */
+    background-color: white; /* Change background to white */
+  }
+  
+  .overlay-content {
+    text-align: center;
+  }
+  
+  .overlay a {
+    padding: 12px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #000; /* Change text color to black */
+    display: block;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth hover effects */
+  }
+  
+  .overlay a:hover,
+  .overlay a:focus {
+    color: #555; /* Change hover color */
+    transform: scale(1.1); /* Add a slight zoom effect on hover */
+  }
+  
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #000; /* Change close button color to black */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out; /* Smooth hover effect for close button */
+  }
+  
+  .overlay .closebtn:hover {
+    color: #555; /* Change hover color for close button */
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {
+      font-size: 20px;
+    }
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }

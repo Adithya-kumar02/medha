@@ -5,7 +5,7 @@ const Section1 = () => {
     <section 
       id="section1" 
       style={{ 
-        backgroundImage: "url('/images/bg1.jpg')",  // Path from the public folder
+        backgroundImage: "url('/images/bg2.jpg')",  // Path from the public folder
         backgroundSize: "cover", 
         backgroundPosition: "center", 
         height: "100vh", 
