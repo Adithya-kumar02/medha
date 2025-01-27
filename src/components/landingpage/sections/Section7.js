@@ -17,5 +17,5 @@ const Section1 = () => {
     </section>
   );
 };
-
+// Adhiiiiiiiiiiiii 
 export default Section1;
