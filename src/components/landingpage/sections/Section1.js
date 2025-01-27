@@ -96,7 +96,7 @@ const Section1 = () => {
         }}
         onClick={openNav}
       >
-        &#9776; open
+       
       </span>
 
       {/* Center image */}
