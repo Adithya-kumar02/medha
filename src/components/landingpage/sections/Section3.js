@@ -27,7 +27,7 @@ const Section1 = () => {
           left: "0",
           right: "0",
           bottom: "0",
-          backgroundImage: "url('/images/lokibg.jpg')",
+          backgroundImage: "url('/images/bgf.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           filter: "blur(3px)", // Adjust the blur amount here
@@ -84,21 +84,7 @@ const Section1 = () => {
         </div>
       </div>
 
-      {/* Left Image - Independent Placement */}
-      <div
-        style={{
-          position: "absolute",
-          left: "0%", // Move closer to the left edge
-          top: "40%", // Move lower from the top
-          zIndex: 2,
-        }}
-      >
-        <img
-          src="/images/venoico.png"
-          alt="Left Image"
-          style={{ width: "650px", height: "auto", transform: "scaleX(-1)" }} // Flip the left image
-        />
-      </div>
+     
 
       {/* Right Image - Independent Placement */}
       <div

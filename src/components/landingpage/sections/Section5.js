@@ -5,7 +5,7 @@ const Section1 = () => {
     <section
       id="section1"
       style={{
-        backgroundImage: "url('/images/section5bg.png')",
+        backgroundImage: "url('/images/bgf.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "80vh", // Increased height to 80vh

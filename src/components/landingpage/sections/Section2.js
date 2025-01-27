@@ -2,120 +2,159 @@ import React from "react";
 
 const Section1 = () => {
   return (
-    <section
-      id="section1"
-      style={{
-        position: "relative",
-        backgroundImage: "url('/images/sec2.jpg')", // Path to the background image
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "100vh",
-        width: "100vw",
-        color: "white", // Ensure text stands out on the background
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-        padding: "0 20px", // Padding to add space around content
-      }}
-    >
-      {/* Background Blur using pseudo-element */}
-      <div
+    <>
+      {/* Add the @font-face definition in a <style> tag */}
+      <style>
+        {`
+          @font-face {
+            font-family: 'AvengersFont';
+            src: url('/fonts/AVENGEANCE HEROIC AVENGER.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+          }
+        `}
+      </style>
+
+      <section
+        id="section1"
         style={{
-          position: "absolute",
-          top: "0",
-          left: "0",
-          right: "0",
-          bottom: "0",
-          backgroundImage: "url('/images/sec2.jpg')",
+          position: "relative",
+          backgroundImage: "url('/images/bgf.jpg')", // Updated background image
           backgroundSize: "cover",
           backgroundPosition: "center",
-          filter: "blur(3px)", // Adjust the blur amount here
-          zIndex: 0,
-        }}
-      ></div>
-
-      {/* Semi-transparent white layer with gaps */}
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "70%", // Adjust the width of the layer
-          height: "70%", // Adjust the height of the layer
-          backgroundColor: "rgba(255, 255, 255, 0.7)", // Semi-transparent white
-          borderRadius: "20px", // Rounded corners
-          border: "10px solid transparent", // Gap effect
-          zIndex: 1,
+          height: "100vh",
+          width: "100vw",
+          color: "white",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          padding: "20px", // Padding inside the layer
+          textAlign: "center",
+          padding: "0 20px",
         }}
       >
-        {/* Content inside the semi-transparent layer */}
+        {/* Background Blur */}
         <div
           style={{
-            maxWidth: "800px",
-            textAlign: "center",
-            color: "black", // Text color
+            position: "absolute",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            backgroundImage: "url('/images/bgf.jpg')", // Updated background image
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            filter: "blur(3px)",
+            zIndex: 0,
+          }}
+        ></div>
+
+        {/* Image Layer with Reduced Opacity */}
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: "70%",
+            height: "70%",
+            borderRadius: "20px",
+            border: "10px solid transparent",
+            zIndex: 1,
+            overflow: "hidden", // Ensure the pseudo-element stays within the bounds
           }}
         >
-          <h1
+          {/* Pseudo-element for the image with reduced opacity */}
+          <div
             style={{
               position: "absolute",
-              top: "20px", // Adjust the position from the top
-              left: "50%",
-              transform: "translateX(-50%)",
-              color: "black", // Text color
-              fontWeight: "bold", // Bold font
-              fontSize: "35px", // Adjust size of the text
-              zIndex: 2,
+              top: "0",
+              left: "0",
+              width: "100%",
+              height: "100%",
+              backgroundImage: "url('/images/sec2.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              opacity: 0.45, // Reduced opacity for the image only
+              zIndex: 1,
+            }}
+          ></div>
+
+          {/* Text Container (no opacity change) */}
+          <div
+            style={{
+              position: "relative",
+              zIndex: 2, // Ensure text is above the image
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: "100%",
+              padding: "20px",
             }}
           >
-            About Medha
-          </h1>
-          <p style={{ fontSize: "1.2rem", marginTop: "20px" }}>
-            Medha is a platform dedicated to empowering students and professionals
-            through skill development and career guidance. Our mission is to
-            bridge the gap between education and employment.
-          </p>
+            <div
+              style={{
+                maxWidth: "800px",
+                textAlign: "center",
+                color: "white", // Text color remains white
+              }}
+            >
+              <h1
+                style={{
+                  position: "absolute",
+                  top: "-15px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  color: "white", // Updated text color to white
+                  fontWeight: "bold",
+                  fontSize: "55px",
+                  fontFamily: "'AvengersFont', sans-serif", // Use the custom font here
+                  textTransform: "uppercase",
+                }}
+              >
+                About &nbsp;&nbsp; Medha
+              </h1>
+              <p style={{ fontSize: "1.2rem", marginTop: "20px" }}>
+                Medha is a platform dedicated to empowering students and professionals
+                through skill development and career guidance. Our mission is to
+                bridge the gap between education and employment.
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* Left Image - Independent Placement */}
-      <div
-        style={{
-          position: "absolute",
-          left: "1%", // Move closer to the left edge
-          top: "1%", // Move lower from the top
-          zIndex: 2,
-        }}
-      >
-        <img
-          src="/images/capa.png"
-          alt="Left Image"
-          style={{ width: "300px", height: "auto" }}
-        />
-      </div>
+        {/* Left Image */}
+        <div
+          style={{
+            position: "absolute",
+            left: "1%",
+            top: "1%",
+            zIndex: 2,
+          }}
+        >
+          <img
+            src="/images/capa.png"
+            alt="Left Image"
+            style={{ width: "300px", height: "auto" }}
+          />
+        </div>
 
-      {/* Right Image - Independent Placement */}
-      <div
-        style={{
-          position: "absolute",
-          right: "3%", // Move closer to the right edge
-          bottom: "6%", // Move higher from the bottom
-          zIndex: 2,
-        }}
-      >
-        <img
-          src="/images/superman.png"
-          alt="Right Image"
-          style={{ width: "300px", height: "auto", borderRadius: "10px" }}
-        />
-      </div>
-    </section>
+        {/* Right Image */}
+        <div
+          style={{
+            position: "absolute",
+            right: "3%",
+            bottom: "6%",
+            zIndex: 2,
+          }}
+        >
+          <img
+            src="/images/superman.png"
+            alt="Right Image"
+            style={{ width: "300px", height: "auto", borderRadius: "10px" }}
+          />
+        </div>
+      </section>
+    </>
   );
 };
 

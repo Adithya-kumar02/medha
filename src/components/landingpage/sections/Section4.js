@@ -4,8 +4,29 @@ import { motion, useTransform, useScroll } from "framer-motion";
 const Section4 = () => {
   return (
     <div style={styles.background}>
+      {/* Inline CSS for fonts */}
+      <style>
+        {`
+          @font-face {
+            font-family: 'Avengers';
+            src: url('/fonts/AVENGEANCE HEROIC AVENGER.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+          }
+
+          @font-face {
+            font-family: 'Avengers3D';
+            src: url('/fonts/Avengers 3D.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+          }
+        `}
+      </style>
+
       {/* Title */}
-      <h1 style={styles.title}>Glimps of MEDHA 2024</h1>
+      <h1 style={styles.title}>
+        G l i m p s  &nbsp;  &nbsp;of  &nbsp; <span style={styles.specialM}>M </span>E D H A  &nbsp; &nbsp;2024
+      </h1>
       <HorizontalScrollCarousel />
     </div>
   );
@@ -15,22 +36,19 @@ const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: targetRef,
-    offset: ["start start", "end end"], // Adjust scroll range
+    offset: ["start start", "end end"],
   });
 
-  // Ensure scrollYProgress is defined
   const isValidScroll = scrollYProgress !== undefined && scrollYProgress !== null;
-
-  // Smoother horizontal scroll animation
   const x = useTransform(
-    isValidScroll ? scrollYProgress : [0, 1], // Fallback if scrollYProgress is invalid
+    isValidScroll ? scrollYProgress : [0, 1],
     [0, 1],
     ["0%", "-80%"]
   );
 
   if (!isValidScroll) {
     console.error("scrollYProgress is not defined");
-    return null; // Early return if scrollYProgress is invalid
+    return null;
   }
 
   return (
@@ -50,16 +68,9 @@ const Card = ({ card }) => {
   return (
     <div style={styles.card}>
       {card.type === "image" ? (
-        <img
-          src={card.url}
-          alt={card.title}
-          style={styles.media}
-        />
+        <img src={card.url} alt={card.title} style={styles.media} />
       ) : (
-        <video
-          controls
-          style={styles.media}
-        >
+        <video controls style={styles.media}>
           <source src={card.url} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -146,25 +157,28 @@ const cards = [
 // Internal CSS Styles
 const styles = {
   background: {
-    backgroundImage: "url('/images/bg2.jpg')", // Set background image
-    backgroundSize: "cover", // Cover the entire section
-    backgroundPosition: "center", // Center the background image
-    minHeight: "100vh", // Ensure the background covers the full viewport height
+    backgroundImage: "url('/images/bgf.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    minHeight: "100vh",
   },
   title: {
-    fontSize: "4rem", // Large font size
-    fontWeight: "bold", // Bold text
-    textTransform: "uppercase", // Uppercase letters
-    textAlign: "center", // Center the title
-    margin: "2rem 0", // Add margin for spacing
-    background: "linear-gradient(90deg, #ff8a00, #e52e71)", // Gradient text color
-    WebkitBackgroundClip: "text", // Clip background to text
-    WebkitTextFillColor: "transparent", // Make text transparent
-    fontFamily: "'Poppins', sans-serif", // Use a blocky font
+    fontSize: "4rem",
+    fontWeight: "bold",
+    textTransform: "uppercase",
+    textAlign: "center",
+    margin: "2rem 0",
+    background: "linear-gradient(90deg, #ff8a00, #e52e71)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+    fontFamily: "'Avengers', sans-serif", // Apply Avengers font
+  },
+  specialM: {
+    fontFamily: "'Avengers3D', sans-serif", // Apply Avengers 3D font to "M"
   },
   section: {
     position: "relative",
-    height: "150vh", // Reduced height for smoother scroll
+    height: "150vh",
   },
   stickyContainer: {
     position: "sticky",
@@ -176,15 +190,15 @@ const styles = {
   },
   motionDiv: {
     display: "flex",
-    gap: "1.5rem", // Adjusted gap between cards
+    gap: "1.5rem",
   },
   card: {
     position: "relative",
-    height: "400px", // Adjusted card height
-    width: "600px", // Adjusted card width
+    height: "400px",
+    width: "600px",
     overflow: "hidden",
-    backgroundColor: "#e5e5e5", // Neutral 200
-    borderRadius: "20px", // Rounded corners
+    backgroundColor: "#e5e5e5",
+    borderRadius: "20px",
   },
   media: {
     position: "absolute",
@@ -209,7 +223,7 @@ const styles = {
     backdropFilter: "blur(10px)",
     padding: "2rem",
     borderRadius: "10px",
-    fontSize: "2rem", // Reduced font size
+    fontSize: "2rem",
     fontWeight: "bold",
     textTransform: "uppercase",
     color: "white",
