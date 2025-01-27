@@ -15,7 +15,7 @@ const Navbar = () => {
         display: "flex",
         justifyContent: "space-between", // Space between logo and links
         alignItems: "center", // Vertically center the content
-        height: "60px", // Increased height to make navbar bigger
+        height: "80px", // Increased height to make navbar bigger
         fontFamily: "sans-serif", // Use a better font
       }}
     >
@@ -55,7 +55,7 @@ const Navbar = () => {
           onMouseOver={(e) => (e.target.style.color = "#ffcc00")} // Hover color
           onMouseOut={(e) => (e.target.style.color = "white")} // Default color
         >
-          Section 1
+          HOME
         </a>
         <a
           href="#section2"
@@ -69,7 +69,7 @@ const Navbar = () => {
           onMouseOver={(e) => (e.target.style.color = "#ffcc00")}
           onMouseOut={(e) => (e.target.style.color = "white")}
         >
-          Section 2
+          EVENT
         </a>
         <a
           href="#section3"
@@ -83,7 +83,7 @@ const Navbar = () => {
           onMouseOver={(e) => (e.target.style.color = "#ffcc00")}
           onMouseOut={(e) => (e.target.style.color = "white")}
         >
-          Section 3
+          TEAM
         </a>
         <a
           href="#section4"
@@ -97,7 +97,7 @@ const Navbar = () => {
           onMouseOver={(e) => (e.target.style.color = "#ffcc00")}
           onMouseOut={(e) => (e.target.style.color = "white")}
         >
-          Section 4
+          ABOUT 
         </a>
         <a
           href="#section5"
@@ -111,36 +111,7 @@ const Navbar = () => {
           onMouseOver={(e) => (e.target.style.color = "#ffcc00")}
           onMouseOut={(e) => (e.target.style.color = "white")}
         >
-          Section 5
-        </a>
-        <a
-          href="#section6"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "18px",
-            fontWeight: "500",
-            transition: "color 0.3s ease",
-          }}
-          onMouseOver={(e) => (e.target.style.color = "#ffcc00")}
-          onMouseOut={(e) => (e.target.style.color = "white")}
-        >
-          Section 6
-        </a>
-        {/* Add more links if needed */}
-        <a
-          href="#section7"
-          style={{
-            color: "white",
-            textDecoration: "none",
-            fontSize: "18px",
-            fontWeight: "500",
-            transition: "color 0.3s ease",
-          }}
-          onMouseOver={(e) => (e.target.style.color = "#ffcc00")}
-          onMouseOut={(e) => (e.target.style.color = "white")}
-        >
-          Section 7
+          
         </a>
       </div>
     </nav>

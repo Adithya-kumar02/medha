@@ -1,33 +1,47 @@
 import React, { useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 
+// Reset any potential CSS inheritance issues
+const globalStyles = `
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body, #root {
+    overflow-x: hidden;
+  }
+
+  @font-face {
+    font-family: 'Avengers';
+    src: url('/fonts/AVENGEANCE HEROIC AVENGER.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Avengers3D';
+    src: url('/fonts/Avengers 3D.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+`;
+
 const Section4 = () => {
   return (
-    <div style={styles.background}>
-      {/* Inline CSS for fonts */}
-      <style>
-        {`
-          @font-face {
-            font-family: 'Avengers';
-            src: url('/fonts/AVENGEANCE HEROIC AVENGER.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-          }
-
-          @font-face {
-            font-family: 'Avengers3D';
-            src: url('/fonts/Avengers 3D.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-          }
-        `}
-      </style>
-
-      {/* Title */}
-      <h1 style={styles.title}>
-        G l i m p s  &nbsp;  &nbsp;of  &nbsp; <span style={styles.specialM}>M </span>E D H A  &nbsp; &nbsp;2024
-      </h1>
-      <HorizontalScrollCarousel />
+    <div style={styles.mainContainer}>
+      <style>{globalStyles}</style>
+      {/* Background with blur effect */}
+      <div style={styles.background}></div>
+      {/* Content above the background */}
+      <div style={styles.contentContainer}>
+        <h1 style={styles.title}>
+          G l i m p s &nbsp; &nbsp;of &nbsp; 
+          <span style={styles.specialM}>M</span>E D H A &nbsp; &nbsp;2024
+        </h1>
+        <HorizontalScrollCarousel />
+      </div>
     </div>
   );
 };
@@ -82,8 +96,6 @@ const Card = ({ card }) => {
   );
 };
 
-export default Section4;
-
 // Data for cards
 const cards = [
   {
@@ -132,53 +144,76 @@ const cards = [
     url: "/videos/video3.mp4",
     title: "Video 3",
     type: "video",
-    id: 6,
+    id: 8,
   },
   {
     url: "/images/ironman.jpg",
     title: "Image 4",
     type: "image",
-    id: 7,
+    id: 9,
   },
   {
     url: "/videos/video3.mp4",
     title: "Video 3",
     type: "video",
-    id: 6,
+    id: 10,
   },
   {
     url: "/images/ironman.jpg",
     title: "Image 4",
     type: "image",
-    id: 7,
+    id: 11,
   },
 ];
 
-// Internal CSS Styles
+// Updated styles object
 const styles = {
+  mainContainer: {
+    position: 'relative',
+    width: '100%',
+    margin: 0,
+    padding: 0,
+    overflow: 'hidden',
+    minHeight: '100vh', // Ensure the container takes full height
+  },
   background: {
     backgroundImage: "url('/images/bgf.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    minHeight: "100vh",
+    backgroundAttachment: "fixed",
+    position: 'absolute', // Position absolutely to avoid affecting layout
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    filter: 'blur(5px)', // Apply blur effect to the background
+    zIndex: -1, // Push the background behind the content
+  },
+  contentContainer: {
+    position: 'relative', // Ensure content is above the blurred background
+    zIndex: 1, // Bring content to the front
   },
   title: {
     fontSize: "4rem",
     fontWeight: "bold",
     textTransform: "uppercase",
     textAlign: "center",
-    margin: "2rem 0",
+    padding: "2rem 0",
+    margin: 0,
     background: "linear-gradient(90deg, #ff8a00, #e52e71)",
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
-    fontFamily: "'Avengers', sans-serif", // Apply Avengers font
+    fontFamily: "'Avengers', sans-serif",
   },
   specialM: {
-    fontFamily: "'Avengers3D', sans-serif", // Apply Avengers 3D font to "M"
+    fontFamily: "'Avengers3D', sans-serif",
   },
   section: {
     position: "relative",
     height: "150vh",
+    margin: 0,
+    padding: 0,
+    display: 'block',
   },
   stickyContainer: {
     position: "sticky",
@@ -187,10 +222,13 @@ const styles = {
     display: "flex",
     alignItems: "center",
     overflow: "hidden",
+    margin: 0,
+    padding: 0,
   },
   motionDiv: {
     display: "flex",
     gap: "1.5rem",
+    padding: "0 1rem",
   },
   card: {
     position: "relative",
@@ -199,6 +237,7 @@ const styles = {
     overflow: "hidden",
     backgroundColor: "#e5e5e5",
     borderRadius: "20px",
+    flexShrink: 0,
   },
   media: {
     position: "absolute",
@@ -229,3 +268,5 @@ const styles = {
     color: "white",
   },
 };
+
+export default Section4;

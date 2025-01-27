@@ -101,7 +101,7 @@ const Section1 = () => {
               <h1
                 style={{
                   position: "absolute",
-                  top: "-15px",
+                  top: "10px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   color: "white", // Updated text color to white
